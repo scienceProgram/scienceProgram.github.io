@@ -1,7 +1,15 @@
 #canvas {
   border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
-#c2 {
-  border: 1px solid blue;
+body {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#btn {
+  font-size: 2em;
 }
