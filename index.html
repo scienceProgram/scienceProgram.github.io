@@ -4,6 +4,7 @@
   <head>
     <title>Science Helper</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <meta charset="utf-8"/>
   </head>
@@ -127,10 +128,38 @@ function init() {
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
     }
 }
+
+function post() {
+  let data = canvas.toDataURL();
+  let short = fetch("https://api-ssl.bitly.com/v4/bitlinks", {
+    method: "POST",
+    body: {
+      "long_url": "http://localhost:5000?canvas=" + data 
+    }
+  })
+
+  console.log(short);
+
+    //fetch(short, {
+    //    method: "POST",
+    //    cors: "no-cors"
+    //});
+}
+
+function get() {
+  var data;
+
+  $.get('http://localhost:5000', (res) => {
+    data = res["image"];
+  });
+}
+
     </script>
     <canvas width="1000px" height="750ps" id="canvas">
       
     </canvas>
     <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
+    <button onclick="get()">Get Canvas</button>
+    <button onclick="post()">Update Canvas</button>
 </body>
 </html>
