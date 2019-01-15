@@ -11,8 +11,11 @@
   <body onload="init()">
     <script>
        var canvas,ctx;
-       var bSize = document.getElementById('bSize').value;
-
+       
+      setInterval(function() {
+        var bSize = document.getElementById('bSize').value;
+      }, 1000);
+       
 // Variables to keep track of the mouse position and left-button status 
 var mouseX,mouseY,mouseDown=0;
 
@@ -156,10 +159,10 @@ function get() {
 }
 
     </script>
-    <input type="number" placeholder="Brush Size" min="1" max="20" id="bSize" />
     <canvas width="1000px" height="750ps" id="canvas">
       
     </canvas>
+    <input type="number" placeholder="Brush Size" min="1" max="20" id="bSize" default="3" />
     <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
     <button onclick="get()">Get Canvas</button>
     <button onclick="post()">Update Canvas</button>
