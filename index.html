@@ -131,6 +131,10 @@ function init() {
         canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
     }
+  
+    $("#bgColor").change(function() {
+      $("#canvas").css("background-color", document.getElementById('bgColor').value);
+    });
 }
 
 function post() {
@@ -161,8 +165,9 @@ function get() {
     </script>
     <canvas width="1000px" height="750ps" id="canvas"></canvas>
     <br />
-    <span stlye="font-size: 2em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
+    <span style="font-size: 2em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
     <span style="font-size: 2em;">Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
+    <span style="font-size: 2em;">Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#000000" />
     <br />
     <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
     <button onclick="get()">Get Canvas</button>
