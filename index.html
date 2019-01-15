@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Science Helper</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <canvas height="100px" width="500px" id="canvas">
+      
+    </canvas>
+    <canvas height="100px" width="500px" id="c2"></canvas>
+    <script>
+      var c = document.getElementById('canvas');
+      var ctx = c.getContext('2d');
+      ctx.beginPath();
+      ctx.rect(20, 20, 20, 20);
+      ctx.fillStyle = 'blue';
+      ctx.fill();
+      
+      var newCtx = document.getElementById('c2').getContext('2d');
+      newCtx.drawImage(c, 0, 0);
+    </script>
+  </body>
+</html>
