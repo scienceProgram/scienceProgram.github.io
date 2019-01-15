@@ -73,7 +73,7 @@ function getMousePos(e) {
         // Update the touch co-ordinates
         getTouchPos();
 
-        drawDot(ctx,touchX,touchY,12);
+        drawDot(ctx,touchX,touchY,5);
 
         // Prevents an additional mousedown event being triggered
         event.preventDefault();
@@ -85,7 +85,7 @@ function getMousePos(e) {
         getTouchPos(e);
 
         // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-        drawDot(ctx,touchX,touchY,12); 
+        drawDot(ctx,touchX,touchY,5); 
 
         // Prevent a scrolling action as a result of this touchmove triggering.
         event.preventDefault();
@@ -128,8 +128,9 @@ function init() {
     }
 }
     </script>
-    <canvas width="1000px" height="700px" id="canvas">
+    <canvas width="1000px" height="750ps" id="canvas">
       
-    </canvas> 
+    </canvas>
+    <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
 </body>
 </html>
