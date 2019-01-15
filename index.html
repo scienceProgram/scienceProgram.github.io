@@ -169,8 +169,8 @@ function get() {
     <span style="font-size: 2em;">Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
     <span style="font-size: 2em;">Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#f8f8ff" />
     <br />
-    <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
-    <button onclick="get()">Get Canvas</button>
-    <button onclick="post()">Update Canvas</button>
+    <input type="submit" value="Clear Sketchpad" class="btn" onclick="clearCanvas(canvas,ctx);">
+    <button onclick="get()" class="btn">Get Canvas</button>
+    <button onclick="post()" class="btn">Update Canvas</button>
 </body>
 </html>
