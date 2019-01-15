@@ -23,7 +23,7 @@ var mouseX,mouseY,mouseDown=0;
 // Parameters are: A canvas context, the x position, the y position, the size of the dot
 function drawDot(ctx,x,y,size) {
     // Select a fill style
-    ctx.fillStyle = "black";
+    ctx.fillStyle = document.getElementById('color').value;
 
     // Draw a filled circle
     ctx.beginPath();
@@ -161,7 +161,9 @@ function get() {
     </script>
     <canvas width="1000px" height="750ps" id="canvas"></canvas>
     <br />
-    <input type="number" placeholder="Brush Size" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
+    <span stlye="font-size: 2em;">Color:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
+    
+    <span style="font-size: 2em;">Brush Size:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
     <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
     <button onclick="get()">Get Canvas</button>
     <button onclick="post()">Update Canvas</button>
