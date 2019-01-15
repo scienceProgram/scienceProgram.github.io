@@ -11,6 +11,7 @@
   <body onload="init()">
     <script>
        var canvas,ctx;
+       var bSize = document.getElementById('bSize').value;
 
 // Variables to keep track of the mouse position and left-button status 
 var mouseX,mouseY,mouseDown=0;
@@ -23,7 +24,7 @@ function drawDot(ctx,x,y,size) {
 
     // Draw a filled circle
     ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI*2, true); 
+    ctx.arc(x, y, bSize, 0, Math.PI*2, true); 
     ctx.closePath();
     ctx.fill();
 } 
@@ -155,6 +156,7 @@ function get() {
 }
 
     </script>
+    <input type="number" placeholder="Brush Size" min="1" max="20" id="bSize" />
     <canvas width="1000px" height="750ps" id="canvas">
       
     </canvas>
