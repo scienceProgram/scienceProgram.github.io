@@ -12,10 +12,10 @@
     <script>
        var canvas,ctx;
        
-      setInterval(function() {
-        var bSize = document.getElementById('bSize').value;
-      }, 1000);
-       
+      //setInterval(function() {
+      //  var bSize = document.getElementById('bSize').value;
+      //}, 1000);
+      
 // Variables to keep track of the mouse position and left-button status 
 var mouseX,mouseY,mouseDown=0;
 
@@ -27,7 +27,7 @@ function drawDot(ctx,x,y,size) {
 
     // Draw a filled circle
     ctx.beginPath();
-    ctx.arc(x, y, bSize, 0, Math.PI*2, true); 
+    ctx.arc(x, y, size, 0, Math.PI*2, true); 
     ctx.closePath();
     ctx.fill();
 } 
@@ -40,7 +40,7 @@ function clearCanvas(canvas,ctx) {
 // Keep track of the mouse button being pressed and draw a dot at current location
 function sketchpad_mouseDown() {
     mouseDown=1;
-    drawDot(ctx,mouseX,mouseY,5);
+    drawDot(ctx,mouseX,mouseY, document.getElementById("bSize").value);
 }
 
 // Keep track of the mouse button being released
@@ -55,7 +55,7 @@ function sketchpad_mouseMove(e) {
 
     // Draw a dot if the mouse button is currently being pressed
     if (mouseDown==1) {
-        drawDot(ctx,mouseX,mouseY,5);
+        drawDot(ctx,mouseX,mouseY,document.getElementById("bSize").value);
     }
 }
 
@@ -78,7 +78,7 @@ function getMousePos(e) {
         // Update the touch co-ordinates
         getTouchPos();
 
-        drawDot(ctx,touchX,touchY,5);
+        drawDot(ctx,touchX,touchY,document.getElementById("bSize").value);
 
         // Prevents an additional mousedown event being triggered
         event.preventDefault();
@@ -90,7 +90,7 @@ function getMousePos(e) {
         getTouchPos(e);
 
         // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
-        drawDot(ctx,touchX,touchY,5); 
+        drawDot(ctx,touchX,touchY,document.getElementById("bSize").value); 
 
         // Prevent a scrolling action as a result of this touchmove triggering.
         event.preventDefault();
@@ -162,7 +162,7 @@ function get() {
     <canvas width="1000px" height="750ps" id="canvas">
       
     </canvas>
-    <input type="number" placeholder="Brush Size" min="1" max="20" id="bSize" default="3" />
+    <input type="number" placeholder="Brush Size" min="1" max="20" id="bSize" value="3" style="height: 50px;width:100px;" />
     <input type="submit" value="Clear Sketchpad" id="btn" onclick="clearCanvas(canvas,ctx);">
     <button onclick="get()">Get Canvas</button>
     <button onclick="post()">Update Canvas</button>
