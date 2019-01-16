@@ -1,16 +1,39 @@
 #canvas {
-  border: 1px solid black;
-  margin-left: auto;
-  margin-right: 1em;
-  position: relative;
-  float: left;
+    border: 1px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: block;
 }
 
 body {
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .btn {
-  font-size: 2em;
+    font-size: 2em;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+}
+
+html {
+    background-color: #1F2833;
+    user-select: none;
+    color: white;
+}
+
+input {
+    margin-right: 24px;
+    margin-left: 5px;
+}
+
+#side {
+    text-align: center;
+}
+
+a {
+    color: aquamarine;
 }
