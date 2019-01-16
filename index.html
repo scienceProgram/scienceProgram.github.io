@@ -11,11 +11,9 @@
 <body onload="init()">
     <script>
        var canvas,ctx;
-
       //setInterval(function() {
       //  var bSize = document.getElementById('bSize').value;
       //}, 1000);
-
 // Variables to keep track of the mouse position and left-button status
 var mouseX,mouseY,mouseDown=0;
 // Draws a dot at a specific position on the supplied canvas name
@@ -110,17 +108,17 @@ function init() {
         canvas.addEventListener('touchstart', sketchpad_touchStart, false);
             canvas.addEventListener('touchmove', sketchpad_touchMove, false);
     }
-
     $("#bgColor").change(function() {
       $("#canvas").css("background-color", document.getElementById('bgColor').value);
     });
 }
 function post() {
     let data = {
-        link: canvas.toDataURL()
+        link: canvas.toDataURL(),
+        color: document.getElementById("bgColor").value
     }
 
-    fetch("http://localhost:5000", {
+    fetch("https://frozen-woodland-51964.herokuapp.com/", {
         method: "POST",
         cors: "no-cors",
         headers: {
@@ -129,26 +127,14 @@ function post() {
         body: JSON.stringify(data)
     });
 }
-function get() {
-  var data;
-  $.get('http://localhost:5000', (res) => {
-      data = res["image"];
-
-      let image = new Image();
-      image.src = data;
-
-      ctx.drawImage(image, 0, 0);
-  });
-}
     </script>
     <canvas width="1000" height="750" id="canvas"></canvas>
     <br />
     <span style="font-size: 2em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
-    <span style="font-size: 2em;">Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
-    <span style="font-size: 2em;">Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#f8f8ff" />
+    <span style="font-size: 2em;"> Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
+    <span style="font-size: 2em;"> Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#f8f8ff" />
     <br />
-    <input type="submit" value="Clear Sketchpad" class="btn" onclick="clearCanvas(canvas,ctx);">
-    <button onclick="get()" class="btn">Get Canvas</button>
+    <input type="submit" value="Clear Canvas" class="btn" onclick="clearCanvas(canvas,ctx);">
     <button onclick="post()" class="btn">Update Canvas</button>
 </body>
 </html>
