@@ -11,9 +11,6 @@
 <body onload="init()">
     <script>
        var canvas,ctx;
-      //setInterval(function() {
-      //  var bSize = document.getElementById('bSize').value;
-      //}, 1000);
 // Variables to keep track of the mouse position and left-button status
 var mouseX,mouseY,mouseDown=0;
 // Draws a dot at a specific position on the supplied canvas name
@@ -30,6 +27,7 @@ function drawDot(ctx,x,y,size) {
 // Clear the canvas context using the canvas width and height
 function clearCanvas(canvas,ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById('color').value = "#ffffff";
 }
 // Keep track of the mouse button being pressed and draw a dot at current location
 function sketchpad_mouseDown() {
