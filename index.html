@@ -94,7 +94,8 @@ function getMousePos(e) {
 function init() {
     let pass = prompt("Password Required");
     if (pass !== "cunningham") {
-        $("body").html("<!-- Lel You thought -->");
+        $("html").attr("oncontextmenu", "return false");
+        $("body").hide();
     }
 
     // Get the specific canvas element from the HTML document
@@ -108,7 +109,7 @@ function init() {
         canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
         window.addEventListener('mouseup', sketchpad_mouseUp, false);
         canvas.addEventListener('touchstart', sketchpad_touchStart, false);
-            canvas.addEventListener('touchmove', sketchpad_touchMove, false);
+        canvas.addEventListener('touchmove', sketchpad_touchMove, false);
     }
     $("#bgColor").change(function() {
       $("#canvas").css("background-color", document.getElementById('bgColor').value);
