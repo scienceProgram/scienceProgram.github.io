@@ -1,6 +1,6 @@
-function post(canvas) {
-    fetch("http://localhost:5000?canvas=" + canvas, {
-        method: "POST",
-        cors: "no-cors"
-    });
-}
+$(document).on("ready", function() {
+    let pass = prompt("Password Required");
+    if (pass !== "cunningham") {
+        window.close();   
+    }
+});
