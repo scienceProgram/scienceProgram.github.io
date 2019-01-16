@@ -27,7 +27,7 @@ function drawDot(ctx,x,y,size) {
 // Clear the canvas context using the canvas width and height
 function clearCanvas(canvas,ctx) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById('color').value = "#ffffff";
+    document.getElementById('bgColor').value = "#ffffff";
 }
 // Keep track of the mouse button being pressed and draw a dot at current location
 function sketchpad_mouseDown() {
@@ -130,7 +130,7 @@ function post() {
     <br />
     <span style="font-size: 1.5em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
     <span style="font-size: 1.5em;"> Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
-    <span style="font-size: 1.5em;"> Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#f8f8ff" />
+    <span style="font-size: 1.5em;"> Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#ffffff" />
     <br />
     <input type="submit" value="Clear Canvas" class="btn" onclick="clearCanvas(canvas,ctx);">
     <button onclick="post()" class="btn">Update Canvas</button>
