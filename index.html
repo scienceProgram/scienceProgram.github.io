@@ -93,6 +93,11 @@ function getMousePos(e) {
     }
 // Set-up the canvas and add our event handlers after the page has loaded
 function init() {
+    let pass = prompt("Password Required");
+    if (pass !== "cunningham") {
+        $("body").hide();   
+    }
+    
     // Get the specific canvas element from the HTML document
     canvas = document.getElementById('canvas');
     // If the browser supports the canvas tag, get the 2d drawing context for this canvas
