@@ -5,7 +5,6 @@
     <title>Science Helper</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
     <meta charset="utf-8" />
 </head>
 <body onload="init()">
@@ -95,9 +94,9 @@ function getMousePos(e) {
 function init() {
     let pass = prompt("Password Required");
     if (pass !== "cunningham") {
-        $("body").hide();   
+        $("body").hide();
     }
-    
+
     // Get the specific canvas element from the HTML document
     canvas = document.getElementById('canvas');
     // If the browser supports the canvas tag, get the 2d drawing context for this canvas
@@ -120,7 +119,6 @@ function post() {
         link: canvas.toDataURL(),
         color: document.getElementById("bgColor").value
     }
-
     fetch("https://frozen-woodland-51964.herokuapp.com/", {
         method: "POST",
         cors: "no-cors",
@@ -131,14 +129,16 @@ function post() {
     });
 }
     </script>
-    <canvas width="1000" height="750" id="canvas"></canvas>
+    <canvas width="1240" height="750" id="canvas"></canvas>
     <br />
-    <span style="font-size: 1.5em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:2em" />
-    <span style="font-size: 1.5em;"> Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
-    <span style="font-size: 1.5em;"> Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#ffffff" />
-    <br />
-    <input type="submit" value="Clear Canvas" class="btn" onclick="clearCanvas(canvas,ctx);">
-    <button onclick="post()" class="btn">Update Canvas</button>
-    <p>Mirror Site: <a href="https://scienceprogram.github.io/mirror/">https://scienceprogram.github.io/mirror/</a></p>
+    <div id="side">
+        <span style="font-size: 1.5em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:1.5em" />
+        <span style="font-size: 1.5em;">Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#000000" />
+        <span style="font-size: 1.5em;">Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#ffffff" />
+        <br />
+        <input type="submit" value="Clear Canvas" class="btn" onclick="clearCanvas(canvas,ctx);">
+        <button onclick="post()" class="btn">Update Canvas</button>
+        <p>Mirror Site: <a href="https://scienceprogram.github.io/mirror/">https://scienceprogram.github.io/mirror/</a></p>
+    </div>
 </body>
 </html>
