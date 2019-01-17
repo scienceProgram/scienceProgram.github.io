@@ -95,7 +95,7 @@
             let pass = prompt("Password Required");
             if (pass !== "cunningham") {
                 $("html").attr("oncontextmenu", "return false");
-                $("body").hide();
+                $("body").html("<!-- You thought you were clever? Nope -->");
             }
 
             // Get the specific canvas element from the HTML document
