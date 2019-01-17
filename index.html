@@ -26,7 +26,7 @@
         // Clear the canvas context using the canvas width and height
         function clearCanvas(canvas, ctx) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            document.getElementById('bgColor').value = "#ffffff";
+            document.getElementById('bgColor').value = "#fffffe";
         }
         // Keep track of the mouse button being pressed and draw a dot at current location
         function sketchpad_mouseDown() {
@@ -134,7 +134,7 @@
     <br />
     <div id="side">
         <span style="font-size: 1.5em;">Brush Size:</span> <input type="number" min="1" max="20" id="bSize" value="3" style="font-size:1.5em" />
-        <span style="font-size: 1.5em;">Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#ffffff" />
+        <span style="font-size: 1.5em;">Color:</span> <input type="color" name="Color" style="height: 2em;width: 2em;" id="color" value="#fffffe" />
         <span style="font-size: 1.5em;">Background Color:</span><input type="color" name="bgColor" id="bgColor" value="#000000" />
         <br />
         <input type="submit" value="Clear Canvas" class="btn" onclick="clearCanvas(canvas,ctx);">
